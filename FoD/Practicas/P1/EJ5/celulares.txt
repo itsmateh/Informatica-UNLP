@@ -1,0 +1,21 @@
+102 850.99 Samsung  
+3 5 Este modelo tiene una pantalla AMOLED de 6.4" y 128GB de almacenamiento.  
+Galaxy A34  
+215 949.50 Apple  
+10 4 Cuenta con el potente chip A15 Bionic y 128GB de almacenamiento interno.  
+iPhone 13  
+320 449.99 Xiaomi  
+2 6 Incorpora una cámara de 50MP y 64GB de almacenamiento para tus fotos y apps.  
+Redmi Note 12  
+410 619.75 Motorola  
+15 5 Su batería de 5000mAh garantiza una excelente autonomía con 128GB de memoria.  
+Moto G73  
+525 779.90 OnePlus  
+4 8 Disfruta de carga rápida de 80W y 256GB de almacenamiento en este potente equipo.  
+OnePlus Nord 3  
+633 499.95 Realme  
+1 3 Viene con el procesador Dimensity 810 y 128GB de almacenamiento para mayor rendimiento.  
+Realme 9  
+721 699.99 Oppo  
+6 4 Ofrece conectividad 5G, doble SIM y 128GB de almacenamiento interno.  
+Oppo Reno 8  
