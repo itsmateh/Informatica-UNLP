@@ -1,5 +1,5 @@
 fn main() {
-    let mut arr: [i32; 6] = [2, 4, 6, 7, 8, 10];
+    let mut arr: [i32; 6] = [2, 4, 6, 8, 10, 12];
     println!("Arreglo original: {:?}", arr);
 
     const FAC:i32 = 2; 
