@@ -1,5 +1,5 @@
 package P2.EJ1yEJ2;
-import java.util.*
+import java.util.*;
 
 public class BinaryTree <T> {
     private T data;
