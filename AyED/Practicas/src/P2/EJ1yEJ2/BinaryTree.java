@@ -7,7 +7,7 @@ public class BinaryTree <T> {
     private BinaryTree<T> rightChild;
 
     public BinaryTree() {
-        super();
+        super(); 
     }
 
     public BinaryTree(T data) {
@@ -85,8 +85,8 @@ public class BinaryTree <T> {
 
     public BinaryTree<T> espejo(){
         BinaryTree<T> mirrorTree = new BinaryTree<T>(this.getData());
-        if(this.hasLeftChild()) mirrorTree.addRightChild(getLeftChild());
-        if(this.hasRightChild()) mirrorTree.addLeftChild(getRightChild());
+        if(this.hasLeftChild()) mirrorTree.addRightChild(getLeftChild().espejo());
+        if(this.hasRightChild()) mirrorTree.addLeftChild(getRightChild().espejo());
         return mirrorTree;
     }
 
