@@ -2,6 +2,8 @@ package P2.EJ1yEJ2;
 import java.util.*;
 
 public class BinaryTree <T> {
+
+
     private T data;
     private BinaryTree<T> leftChild;
     private BinaryTree<T> rightChild;
@@ -91,9 +93,9 @@ public class BinaryTree <T> {
     }
 
     // 0<=n<=m
-    public void entreNiveles(int n, int m){
+    /* public void entreNiveles(int n, int m){
         // es medio un bfs
-        if(n < 0 || m < n || this.isEmpty()) return;
+        if(n < 0 || m >= n || this.isEmpty()) return;
         Queue<BinaryTree<T>> queue = new LinkedList<>();
         queue.add(this);
         int nivel = 0;
@@ -115,13 +117,40 @@ public class BinaryTree <T> {
           }
           nivel++;
         }
+    } */
+
+    public void entreNiveles(int n, int m){
+        // es medio un bfs
+        if(n < 0 || m < n || this.isEmpty()) return;
+        Queue<BinaryTree<T>> queue = new LinkedList<>();
+        queue.add(this);
+        int nivel = 0;
+        while(!queue.isEmpty()){
+            int cantNodosNivel = queue.size();
+            for(int i=0; i<cantNodosNivel; i++){
+                BinaryTree<T> nodoAct = queue.remove();
+                if(nivel >= n && nivel <= m){
+                    System.out.print( " | "  + nodoAct.getData() +  " | ");
+                    if(nodoAct.hasLeftChild()) queue.add(nodoAct.getLeftChild());
+                    if(nodoAct.hasRightChild()) queue.add(nodoAct.getRightChild());
+                }
+                else {
+                    if (nodoAct.hasLeftChild()) queue.add(nodoAct.getLeftChild());
+                    if (nodoAct.hasRightChild()) queue.add(nodoAct.getRightChild());
+                }
+            }
+            System.out.println(); // salto despues de imprimir el nivel
+            nivel++;
+        }
     }
+
 
     public void imprimir(){
         if(this.hasLeftChild()) this.getLeftChild().imprimir();
         System.out.println(this.getData()+" ");
         if(this.hasRightChild()) this.getRightChild().imprimir();
     }
+
 
 
     // ================================================================
@@ -131,6 +160,9 @@ public class BinaryTree <T> {
         bt.addLeftChild(new BinaryTree<Integer>(5));
         bt.getLeftChild().addLeftChild(new BinaryTree<Integer>(3));
         bt.getLeftChild().addRightChild(new BinaryTree<Integer>(4));
+        bt.getLeftChild().getLeftChild().addLeftChild(new BinaryTree<Integer>(1));
+        bt.getLeftChild().getLeftChild().addRightChild()     (new BinaryTree<Integer
+
 
         bt.addRightChild(new BinaryTree<Integer>(15));
         bt.getRightChild().addLeftChild(new BinaryTree<Integer>(12));
@@ -151,8 +183,9 @@ public class BinaryTree <T> {
         n = s.nextInt(); m = s.nextInt();
 
         bt.entreNiveles(n,m);
-        System.out.println(" ");
-        btMirror.entreNiveles(n,m);
+
+        /* System.out.println(" ");
+        btMirror.entreNiveles(n,m); */
     }
 }
 

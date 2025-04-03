@@ -31,7 +31,6 @@ public class ProfundidadDeArbolBinario {
         return 0;
     }
 
-    // by Monazo1997 
     public void crear_arbol() {
         ArrayList<Integer> datos = new ArrayList<>(Arrays.asList(10, 2, 3, 5, 4, 9, 8, 7, 8, 5, 6, 12, 8, 2, 1));
         ArrayList<BinaryTree<Integer>> lista = new ArrayList<>();
