@@ -84,7 +84,7 @@ public class BinaryTree <T> {
     }
 
     public BinaryTree<T> espejo(){
-        BinaryTree<T> mirrorTree = new BinaryTree<T>();
+        BinaryTree<T> mirrorTree = new BinaryTree<T>(this.getData());
         if(this.hasLeftChild()) mirrorTree.addRightChild(getLeftChild());
         if(this.hasRightChild()) mirrorTree.addLeftChild(getRightChild());
         return mirrorTree;
