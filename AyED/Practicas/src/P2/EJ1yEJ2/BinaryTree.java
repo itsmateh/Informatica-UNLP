@@ -7,7 +7,7 @@ public class BinaryTree <T> {
     private BinaryTree<T> rightChild;
 
     public BinaryTree() {
-        super();
+        super(); 
     }
 
     public BinaryTree(T data) {
