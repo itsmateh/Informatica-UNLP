@@ -84,9 +84,9 @@ public class BinaryTree <T> {
     }
 
     public BinaryTree<T> espejo(){
-        BinaryTree<T> mirrorTree = new BinaryTree<T>();
-        if(this.hasLeftChild()) mirrorTree.addRightChild(getLeftChild());
-        if(this.hasRightChild()) mirrorTree.addLeftChild(getRightChild());
+        BinaryTree<T> mirrorTree = new BinaryTree<T>(this.getData());
+        if(this.hasLeftChild()) mirrorTree.addRightChild(getLeftChild().espejo());
+        if(this.hasRightChild()) mirrorTree.addLeftChild(getRightChild().espejo());
         return mirrorTree;
     }
 
@@ -133,8 +133,8 @@ public class BinaryTree <T> {
         bt.getLeftChild().addRightChild(new BinaryTree<Integer>(4));
 
         bt.addRightChild(new BinaryTree<Integer>(15));
-        bt.getRightChild().addLeftChild(new BinaryTree<Integer>(20));
-        bt.getRightChild().addRightChild(new BinaryTree<Integer>(12));
+        bt.getRightChild().addLeftChild(new BinaryTree<Integer>(12));
+        bt.getRightChild().addRightChild(new BinaryTree<Integer>(20));
 
         // test
         System.out.println(bt.contarHojas()); // a
@@ -151,8 +151,8 @@ public class BinaryTree <T> {
         n = s.nextInt(); m = s.nextInt();
 
         bt.entreNiveles(n,m);
-
+        System.out.println(" ");
+        btMirror.entreNiveles(n,m);
     }
-
 }
 
