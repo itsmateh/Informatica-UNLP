@@ -161,7 +161,6 @@ public class BinaryTree <T> {
         bt.getLeftChild().addLeftChild(new BinaryTree<Integer>(3));
         bt.getLeftChild().addRightChild(new BinaryTree<Integer>(4));
 
-
         bt.addRightChild(new BinaryTree<Integer>(15));
         bt.getRightChild().addLeftChild(new BinaryTree<Integer>(12));
         bt.getRightChild().addRightChild(new BinaryTree<Integer>(20));
