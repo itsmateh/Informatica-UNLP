@@ -1,0 +1,4 @@
+Lo voy a resolver con un Stack que es una estructura de datos perfecta para problemas de balanceo de delimitadores.
+
+Funcionamiento: voy almacenando en el stack el caracter leido de apertura, si es un caracter de cierre verifico si el tope de mi pila
+tiene el caracter de apertura, si es asi elimino ese elemento y sigo recorriendo, si no es asi termino, ya que no esta balanceado.
