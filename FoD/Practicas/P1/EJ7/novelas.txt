@@ -1,0 +1,10 @@
+1 19.99 Ciencia Ficcion
+Fundacion
+2 15.50 Fantasia
+El Hobbit
+3 22.75 Misterio
+El nombre de la rosa
+4 18.30 Terror
+Dracula
+5 12.99 Clasico
+Orgullo y prejuicio

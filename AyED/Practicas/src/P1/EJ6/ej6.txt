@@ -1,0 +1,12 @@
+1) ¿En qué casos ArrayList ofrece un mejor rendimiento que LinkedList?
+---> En acceso a un elemento determinado, ya que es O(1) mientras que una LinkedList es O(n) al recorrer la lista hasta encontrar lo buscado.
+
+2) ¿Cuándo LinkedList puede ser más eficiente que ArrayList?
+---> La LinkedList tiene un O(1) para operaciones de agregar y eliminar al principio y al final de la lista.
+
+3) ¿Qué diferencia encuentra en el uso de la memoria en ArrayList y LinkedList?
+---> Una LinkedList consume un poco más de memoria que una ArrayList ya que cada nodo almacena dos referencias al elemento anterior y al siguiente
+
+4) ¿En qué casos sería preferible usar un ArrayList o un LinkedList?
+---> LinkedList: cuando se conoce que la aplicación requiere manipulación de datos (muchas inserciones y borrados).
+     ArrayList: cuando la aplicación requiere acceso a datos y su tamaño no varía demasiado.

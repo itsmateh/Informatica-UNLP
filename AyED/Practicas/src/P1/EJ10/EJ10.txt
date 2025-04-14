@@ -1,0 +1,2 @@
+Usaria una Dequeue ya que los que tengan prioridad, en este caso los mayores de 70, podrian ser puestos adelente
+y los demas harian la cola como una fila normal.
