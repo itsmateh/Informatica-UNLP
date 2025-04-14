@@ -1,4 +1,4 @@
-program ej1; 
+program EJ1; 
 const valorCorte = -1; 
 type 
    empleado = record 
