@@ -1,0 +1,39 @@
+3057 5553 3537 Buenos Aires
+
+5989 8327 5398 Buenos Aires
+
+5685 8236 2548 Catamarca
+
+420 592 4837 Catamarca
+
+5089 9409 5725 Catamarca
+
+3793 9945 2617 Chaco
+
+7212 8540 5171 Chaco
+
+5385 8374 5918 Córdoba
+
+1146 3086 2064 Córdoba
+
+436 5270 5744 Formosa
+
+1140 2037 9566 Formosa
+
+403 9413 6055 La Pampa
+
+2146 2825 1338 La Rioja
+
+1415 2656 9282 Neuquén
+
+3357 7781 8860 San Juan
+
+1810 6754 7108 San Juan
+
+452 3463 4411 Santa Cruz
+
+180 245 9270 Santiago del Estero
+
+6468 6935 4170 Tierra del Fuego
+
+1266 9551 3487 Tucumán

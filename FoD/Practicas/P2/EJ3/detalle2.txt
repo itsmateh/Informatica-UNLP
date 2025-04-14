@@ -1,0 +1,29 @@
+302 706 4535 Buenos Aires
+
+848 1785 2571 Buenos Aires
+
+2039 7209 5672 Catamarca
+
+1870 2285 8804 Entre Ríos
+
+1562 3312 9959 Entre Ríos
+
+6938 9368 1660 Jujuy
+
+5871 7715 5432 La Rioja
+
+3244 4433 1074 Misiones
+
+3549 8057 7743 Neuquén
+
+4627 5781 9096 San Juan
+
+6898 8374 3808 San Luis
+
+752 3310 4587 Santa Fe
+
+2316 2738 3283 Santiago del Estero
+
+3635 5755 9272 Tucumán
+
+6030 6353 9327 Tucumán
