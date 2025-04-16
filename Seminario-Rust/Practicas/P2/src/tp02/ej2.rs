@@ -1,5 +1,3 @@
-
-
 fn criba_eratostenes(lim:usize) -> Vec<bool>{
     // usando macro vec!
     let mut primos = vec![true; lim+1];
@@ -22,4 +20,11 @@ fn criba_eratostenes(lim:usize) -> Vec<bool>{
 pub fn es_primo(n:usize) -> bool{
     let criba = criba_eratostenes(n); 
     criba[n]
+}
+
+#[test]
+fn test_es_primo(){
+    assert_eq!(es_primo(2), true); 
+    assert_eq!(es_primo(3), true); 
+    assert_eq!(es_primo(104729), true); 
 }
