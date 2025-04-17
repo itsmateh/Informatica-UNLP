@@ -29,7 +29,7 @@ public class RecorridosAG {
     private void odd_numbers_post(GeneralTree<Integer> tree, int n, List<Integer> ans) {
         List<GeneralTree<Integer>> children = tree.getChildren();
         for (GeneralTree<Integer> ch : children) {
-            odd_numbers_post(tree, n, ans);
+            odd_numbers_post(ch, n, ans);
         }
         if (((tree.getData() & 1) != 0) && (tree.getData() > n)) ans.add(tree.getData());
     }
@@ -43,9 +43,13 @@ public class RecorridosAG {
 
     private void odd_numbers_in(GeneralTree<Integer> tree, int n, List<Integer> ans){
         List<GeneralTree<Integer>> children = tree.getChildren();
-        for(GeneralTree<Integer> ch : children){
-            if (((tree.getData() & 1) != 0) && (tree.getData() > n)) ans.add(tree.getData());
-            odd_numbers_in(tree, n, ans);
+        // obtengo el primer nodo que seria el mas izquierdo
+        if(!children.isEmpty()) odd_numbers_in(children.get(0), n, ans);
+        // ahora llego a la raiz
+        if (((tree.getData() & 1) != 0) && (tree.getData() > n)) ans.add(tree.getData());
+        // ahora al resto de los hijos arrancando por el 1 (el 0 fue procesado)
+        for(int i=1; i<children.size(); i++){
+            odd_numbers_in(children.get(i), n, ans);
         }
     }
     public List<Integer> numerosImparesMayoresQueInOrden (GeneralTree <Integer> a, Integer n){
