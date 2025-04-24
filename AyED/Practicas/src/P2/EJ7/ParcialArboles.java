@@ -5,21 +5,11 @@ import P2.EJ1yEJ2.BinaryTree;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
-<<<<<<< HEAD
 import java.util.Scanner;
-
-public class ParcialArboles {
-
-        private BinaryTree<Integer> root;
-
- // ============================= AUXILIARES =============================
-=======
-
 public class ParcialArboles {
     BinaryTree<Integer> root;
 
     // ==================================================================
->>>>>>> 244640d89b00df479a3e9c8d3d597d9f9b093834
         public void crear_arbol() {
             int [] datos = new int[100];
             int [] posiciones = {0, 1, 2, 3, 4, 5, 7, 9, 10, 12, 25};
@@ -46,11 +36,7 @@ public class ParcialArboles {
             // es medio un bfs
             if(n < 0 || m < n || root.isEmpty()) return;
             Queue<BinaryTree<Integer>> queue = new LinkedList<>();
-<<<<<<< HEAD
             queue.add(this.root);
-=======
-            queue.add(root);
->>>>>>> 244640d89b00df479a3e9c8d3d597d9f9b093834
             int nivel = 0;
             while(!queue.isEmpty()){
                 int cantNodosNivel = queue.size();
@@ -70,7 +56,6 @@ public class ParcialArboles {
                 nivel++;
             }
         }
-<<<<<<< HEAD
  // ==========================================================================
 
         private int countChilds(BinaryTree<Integer> currNode){
@@ -84,12 +69,9 @@ public class ParcialArboles {
         private BinaryTree<Integer> findNode(BinaryTree<Integer> node, int val){
             if(node == null) return null;
             if(node.getData() == val) return node;
-
             BinaryTree<Integer> currNode;
             currNode = findNode(node.getLeftChild(), val);
-
             if(currNode != null) return currNode;
-
             currNode = findNode(node.getRightChild(), val);
             return currNode;
         }
@@ -123,48 +105,5 @@ public class ParcialArboles {
         System.out.println(bt.isLeftTree(n));
 
     }
-=======
 
-    // ==================================================================
-
-
-    private int childs(BinaryTree<Integer> node){
-        int cant = 0;
-        if(node.hasLeftChild()) cant += childs(node.getLeftChild());
-        if(node.hasRightChild()) cant += childs(node.getRightChild());
-
-        // condicion
-        if(node.hasLeftChild() && !node.hasRightChild() || node.hasRightChild() && !node.hasLeftChild()) cant++;
-        return cant;
-    }
-
-
-    private BinaryTree<Integer> findNode(BinaryTree<Integer> node, int val){
-        if(node.getData() == val) return node;
-
-        BinaryTree<Integer> nextnode = new BinaryTree<Integer>(); // esto es lo que retorno
-        if(node.hasLeftChild()) nextnode = findNode(node.getLeftChild(), val);
-        if(node.hasRightChild()) nextnode = findNode(node.getRightChild(), val);
-        return nextnode;
-    }
-
-    public boolean isLeftTree(int n){
-        BinaryTree<Integer> currNode = findNode(root, n); //una vez parados en el nodo y tomarlo de raiz
-
-        // si tiene hijos el nodo actual (izq y der) los sumamos
-        int cantL = 0; int cantR = 0;
-        if(currNode.hasLeftChild()) cantL += childs(currNode.getLeftChild());
-        if(currNode.hasRightChild()) cantR += childs(currNode.getRightChild());
-
-        return cantL > cantR;
-    }
-
-    public static void main(String[] args) {
-        ParcialArboles tree = new ParcialArboles();
-        tree.crear_arbol();
-        System.out.println(tree.isLeftTree(-5));
-        tree.entreNiveles(0,10);
-    }
-
->>>>>>> 244640d89b00df479a3e9c8d3d597d9f9b093834
 }
