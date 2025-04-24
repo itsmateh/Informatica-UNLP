@@ -1,6 +1,6 @@
 package P3.EJ4;
 
-import P3.EJ1.GeneralTree;
+import P3.EJ1yEJ3.GeneralTree;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;

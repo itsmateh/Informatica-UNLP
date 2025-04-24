@@ -1,6 +1,6 @@
 package P3.EJ2;
 
-import P3.EJ1.GeneralTree;
+import P3.EJ1yEJ3.GeneralTree;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
