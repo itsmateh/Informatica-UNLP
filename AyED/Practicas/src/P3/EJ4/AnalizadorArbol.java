@@ -35,8 +35,8 @@ public class AnalizadorArbol {
             }
             // si entra aca, es bt = null lo quiere decir que en el nivel no hay mas nodos, por lo que debo procesar los datos acumulados
             else if(!q.isEmpty()){
-                double curr_prom = total / cant_nodos;
-                max = Math.max(max, curr_prom);
+                double curr_mean = total / cant_nodos;
+                max = Math.max(max, curr_mean);
                 total = 0; // reiniciamos todo para el siguiente nivel
                 cant_nodos = 0; // idem here
                 q.add(null); // antes en el if pushee todos hijos pero no el null, ahora mando el null en señal de que una vez se procesen todos los hijos, viene el null para cortar el nivel

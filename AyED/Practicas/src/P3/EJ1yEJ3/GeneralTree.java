@@ -102,7 +102,41 @@ public class GeneralTree<T>{
 				queue.addAll(nodo.getChildren());
 			}
 		}
-
 		return m_width;
+	}
+
+	// EJ5
+	public boolean esAncestro(T a, T b){
+		// 1. buscar el nodo A
+		GeneralTree<T> nodoA = findNode(a);
+		if(nodoA == null) return false;
+
+		// 2. buscar el nodo B
+		return check(nodoA, b);
+	}
+	private GeneralTree<T> findNode(T a){
+		// si se encontro
+		if(this.getData().equals(a)) return this;
+
+		for(GeneralTree<T> ch : this.getChildren()){
+			GeneralTree<T> ans = ch.findNode(a);
+			if(ans.getData() != null) return ans;
+		}
+
+		// si no se encontro
+		return null;
+	}
+
+	private boolean check(GeneralTree<T> root, T b){
+		// si lo encontre
+		if(root.getData().equals(b)) return true;
+
+		// me fijo en los hijos, si se encontro devuelvo true
+		for(GeneralTree<T> ch : root.getChildren()){
+			if(check(ch, b)) return true;
+		}
+
+		// si no lo encontre
+		return false;
 	}
 }
