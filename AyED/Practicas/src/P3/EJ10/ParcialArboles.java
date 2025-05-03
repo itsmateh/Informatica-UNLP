@@ -10,7 +10,7 @@ public class ParcialArboles {
         List<Integer> ans = new LinkedList<Integer>();
         List<Integer> curr_path = new LinkedList<Integer>();
         int level = 0;
-        if(arbol != null && !arbol.isEmpty())  find_path(arbol, ans, curr_path, level, arbol.getData(), 0 );
+        if(arbol != null && !arbol.isEmpty())  find_path(arbol, ans, curr_path, level, 0, 0 );
         return ans;
     }
     private static int find_path(GeneralTree<Integer> node, List<Integer> ans, List<Integer> curr_path,
