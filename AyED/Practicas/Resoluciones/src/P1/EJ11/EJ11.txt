@@ -1,0 +1,2 @@
+Usaria una CircularQueue ya que despues de la ultima parada se vuelve a repetir el ciclo, por lo que volveria al "inicio"
+justamente lo que te permite hacer la CQ.
