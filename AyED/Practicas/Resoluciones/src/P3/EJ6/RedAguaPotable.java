@@ -13,20 +13,23 @@ public class RedAguaPotable {
     }
     public double minimoCaudal(double caudal){
         // acordarse siempre de que root puede ser null
-        if(root == null) return 0;
-        return minimoCaudalRec(root, caudal);
+        if(root != null && root.isEmpty()) minimoCaudalRec(root, caudal);
+        return 0;
     }
     private double minimoCaudalRec(GeneralTree<Character> tree, double caudal){
         // si es una hoja (casa) devuelvo el caudal que me pasaron de mas arriba en la rec.
         if(tree.isLeaf()) return caudal;
+
         // ahora si no es una casa, preparo los datos (dividir el monto)
         int cnt_hijos = tree.getChildren().size();
         double nue_caudal = caudal / cnt_hijos;
         double minimo = 999999.0;
+
         // para cada hijo calculo cual es el menor entre todos sus subarboles
         for(GeneralTree<Character> ch : tree.getChildren()){
             minimo = Math.min(minimo, minimoCaudalRec(ch, nue_caudal));
         }
+
         // cuando terminamos de evaluar el minimo con todos sus hijos, retorno el tipo del dato del metodo
         return minimo;
     }
