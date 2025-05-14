@@ -9,34 +9,45 @@ struct Estudiante{
 }
 
 impl Examen{
-    fn new(materia:String, nota:f32) -> Examen {
+    pub fn new(materia:String, nota:f32) -> Examen {
         return Examen{ materia, nota };
     }
 }
 
 impl Estudiante{
-    fn new(nombre:String, id:u32, examenes:Vec<Examen>) -> Estudiante{
+    pub fn new(nombre:String, id:u32, examenes:Vec<Examen>) -> Estudiante{
         return Estudiante { nombre, id, examenes };
     }
 
-    fn obtener_promedio(&self) -> f32 {
-        let suma_notas:f32 = self.examenes.iter().map(|ex| ex.nota).sum(); // gracias programacion funcional sos la cabra
-        return suma_notas/self.examenes.len() as f32; // importante el pareseo !!!! 
+    pub fn obtener_promedio(&self) -> f32 {
+        let mut sum_notas:f32 = 0.0;
+        let cant_examenes:f32 = self.examenes.len() as f32;
+
+
+        for ex in &self.examenes{
+            sum_notas += ex.nota;
+        }
+
+        return sum_notas / cant_examenes;
+
     }
 
-    fn obtener_calificacion_mas_alta(&self) -> f32 {
-        // el iter().max() devuelve un Result por lo que aca no hay programacion funcional que me zafe
-        let mut maximo:f32 = -11111.0;
-        for ex in &self.examenes{ 
-            maximo = f32::max(ex.nota, maximo);            
+    pub fn obtener_calificacion_mas_alta(&self) -> f32 {
+        let mut maximo:f32 = -1111.0;
+        for ex in &self.examenes{
+            if ex.nota > maximo{
+                maximo = ex.nota;
+            }
         }
         return maximo;
     }
 
-    fn obtener_calificacion_mas_baja(&self) -> f32 {
+    pub fn obtener_calificacion_mas_baja(&self) -> f32 {
         let mut minimo:f32 = 9999.0;
-        for ex in &self.examenes {
-            minimo = f32::min(ex.nota, minimo);
+        for ex in &self.examenes{
+            if ex.nota < minimo{
+                minimo = ex.nota;
+            }
         }
         return minimo;
     }

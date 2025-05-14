@@ -7,13 +7,14 @@ struct Triangulo{
 }
 
 impl Triangulo{
-    fn new(lado_1:u32, lado_2:u32, lado_3:u32) -> Result<Triangulo, & 'static str> {
+    pub fn new(lado_1:u32, lado_2:u32, lado_3:u32) -> Result<Triangulo, & 'static str> {
         if lado_1 < 0 || lado_2 < 0 || lado_3 < 0 {
             return Err("Los lados no pueden ser negativos !!!");
         }
         return Ok(Triangulo {lado_1, lado_2, lado_3})
     }
-    fn determinar_tipo(&self) -> String { 
+    
+    pub fn determinar_tipo(&self) -> String { 
         let mut set:HashSet<u32> = HashSet::new();
         set.insert(self.lado_1); 
         set.insert(self.lado_2);
@@ -27,7 +28,7 @@ impl Triangulo{
         }
     }
 
-    fn calcular_area(&self) -> f32 {
+    pub fn calcular_area(&self) -> f32 {
         // formula heron: S = (a+b+c)/2,  Area = sqrt(S*(S-a)*(S-b)*(S-c))
         let a:f32 = self.lado_1 as f32;
         let b:f32 = self.lado_2 as f32;
@@ -37,7 +38,7 @@ impl Triangulo{
         return area
     }
 
-    fn calcular_perimetro(&self) -> u32 {
+    pub fn calcular_perimetro(&self) -> u32 {
         return self.lado_1 + self.lado_2 + self.lado_3;
     }
 }
