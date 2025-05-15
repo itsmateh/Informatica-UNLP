@@ -267,8 +267,7 @@ mod tests {
         let libro = Libro::new(111, "Titulo".to_string(), "Autor".to_string(), 100, Genero::novela);
         let cliente = Cliente::new("Juan".to_string(), 1234, "Calle".to_string(), "juan@mail.com".to_string());
         let fecha = Fecha::new(1, 5, 2025);
-
-        // Crear un préstamo con estado prestado
+        
         let prestamo = Prestamo::new(libro.clone(), cliente.clone(), fecha.clone(), fecha.clone());
         bib.prestamos.push(prestamo);
 
@@ -288,7 +287,6 @@ mod tests {
         let cliente = Cliente::new("Ana".to_string(), 5678, "Calle2".to_string(), "ana@mail.com".to_string());
         let fecha = Fecha::new(5, 6, 2025);
 
-        // Agregar copia para que pueda prestar
         bib.copias_disposicion.insert(libro.isbn, 1);
 
         let resultado = bib.prestamo_cliente(&cliente, &libro, &fecha);
@@ -319,7 +317,91 @@ mod tests {
 
         let p = bib.buscar_prestamo(&libro, &cliente).unwrap();
         assert_eq!(p.fecha_devolucion.dia, 15);
+    } #[test]
+    fn test_obtener_cantidad_copias() {
+        let mut bib = Biblioteca {
+            nombre: "Bibli".to_string(),
+            direccion: "Dir".to_string(),
+            copias_disposicion: HashMap::new(),
+            prestamos: vec![],
+        };
+
+        let libro = Libro::new(444, "Libro4".to_string(), "Autor4".to_string(), 400, Genero::novela);
+
+        assert_eq!(bib.obtener_cantidad_copias(&libro), 0);
+
+        bib.copias_disposicion.insert(libro.isbn, 3);
+        assert_eq!(bib.obtener_cantidad_copias(&libro), 3);
     }
+
+    #[test]
+    fn test_decrementar_copias_libro() {
+        let mut bib = Biblioteca {
+            nombre: "Bibli".to_string(),
+            direccion: "Dir".to_string(),
+            copias_disposicion: HashMap::new(),
+            prestamos: vec![],
+        };
+
+        let libro = Libro::new(555, "Libro5".to_string(), "Autor5".to_string(), 500, Genero::infantil);
+        bib.copias_disposicion.insert(libro.isbn, 2);
+
+        let resultado = bib.decrementar_copias_libro(&libro);
+        assert!(resultado);
+        assert_eq!(bib.copias_disposicion.get(&libro.isbn), Some(&1));
+
+        let libro2 = Libro::new(556, "Libro6".to_string(), "Autor6".to_string(), 600, Genero::tecnico);
+        bib.copias_disposicion.insert(libro2.isbn, 0);
+        let resultado2 = bib.decrementar_copias_libro(&libro2);
+        assert!(!resultado2);
+        assert_eq!(bib.copias_disposicion.get(&libro2.isbn), Some(&0));
+    }
+
+    #[test]
+    fn test_incrementar_copias_libro() {
+        let mut bib = Biblioteca {
+            nombre: "Bibli".to_string(),
+            direccion: "Dir".to_string(),
+            copias_disposicion: HashMap::new(),
+            prestamos: vec![],
+        };
+
+        let libro = Libro::new(666, "Libro7".to_string(), "Autor7".to_string(), 700, Genero::novela);
+        bib.copias_disposicion.insert(libro.isbn, 1);
+
+        let resultado = bib.incrementar_copias_libro(&libro);
+        assert!(resultado);
+        assert_eq!(bib.copias_disposicion.get(&libro.isbn), Some(&2));
+
+        let libro_no_existente = Libro::new(777, "Libro8".to_string(), "Autor8".to_string(), 800, Genero::otros);
+        let resultado2 = bib.incrementar_copias_libro(&libro_no_existente);
+        assert!(!resultado2);
+    }
+
+    #[test]
+    fn test_buscar_prestamo() {
+        let mut bib = Biblioteca {
+            nombre: "Bibli".to_string(),
+            direccion: "Dir".to_string(),
+            copias_disposicion: HashMap::new(),
+            prestamos: vec![],
+        };
+
+        let libro = Libro::new(888, "Libro9".to_string(), "Autor9".to_string(), 900, Genero::infantil);
+        let cliente = Cliente::new("Maria".to_string(), 1111, "Dir1".to_string(), "maria@mail.com".to_string());
+        let fecha = Fecha::new(10, 10, 2025);
+
+        let prestamo = Prestamo::new(libro.clone(), cliente.clone(), fecha.clone(), fecha.clone());
+        bib.prestamos.push(prestamo);
+
+        let encontrado = bib.buscar_prestamo(&libro, &cliente);
+        assert!(encontrado.is_some());
+
+        let cliente_no_prestamo = Cliente::new("Pedro".to_string(), 2222, "Dir2".to_string(), "pedro@mail.com".to_string());
+        let no_encontrado = bib.buscar_prestamo(&libro, &cliente_no_prestamo);
+        assert!(no_encontrado.is_none());
+    }
+
 }
 
 

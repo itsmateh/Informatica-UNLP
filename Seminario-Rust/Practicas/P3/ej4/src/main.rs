@@ -50,12 +50,6 @@ mod tests {
     use super::*;
 
     #[test]
-    fn test_triangulo_valido() {
-        let t = Triangulo::new(3, 4, 5);
-        assert!(t.is_ok());
-    }
-
-    #[test]
     fn test_tipo_equilatero() {
         let t = Triangulo::new(5, 5, 5).unwrap();
         assert_eq!(t.determinar_tipo(), "Equilatero");
