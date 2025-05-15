@@ -7,11 +7,13 @@ struct Triangulo{
 }
 
 impl Triangulo{
-    pub fn new(lado_1:u32, lado_2:u32, lado_3:u32) -> Result<Triangulo, & 'static str> {
-        if lado_1 < 0 || lado_2 < 0 || lado_3 < 0 {
-            return Err("Los lados no pueden ser negativos !!!");
+    pub fn new(lado_1:u32, lado_2:u32, lado_3:u32) -> Option<Triangulo> {
+        if lado_1 == 0 || lado_2 == 0 || lado_3 == 0 {
+            return None; 
         }
-        return Ok(Triangulo {lado_1, lado_2, lado_3})
+        else{
+            return Some(Triangulo{ lado_1, lado_2, lado_3});
+        }
     }
     
     pub fn determinar_tipo(&self) -> String { 
