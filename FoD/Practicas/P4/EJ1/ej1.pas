@@ -1,8 +1,8 @@
-program e1j;
+program EJ1j;
 
-// Considere que desea almacenar en un archivo la información correspondiente a los alumnos de la 
-// Facultad de Informática de la UNLP. De los mismos deberá guardarse nombre y apellido, DNI, legajo 
-// y año de ingreso. Suponga que dicho archivo se organiza como un árbol B de orden M.
+{Considere que desea almacenar en un archivo la información correspondiente a los alumnos de la 
+Facultad de Informática de la UNLP. De los mismos deberá guardarse nombre y apellido, DNI, legajo 
+y año de ingreso. Suponga que dicho archivo se organiza como un árbol B de orden M.}
 
 
 { ================================================================================================================ }
